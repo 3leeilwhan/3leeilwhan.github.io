@@ -1,14 +1,16 @@
 ---
 layout: post
-title: What's Jekyll?
+title: 일환이가 누구냐면??
 comments: true
 ---
 
 
-이름: 이일환
-성별: 남
-나이: 22
-학교: 국민대학교
+## 이름: 이일환  
+## 성별: 남  
+## 나이: 22  
+## 학교: 국민대학교  
+## 학번: 20213048  
+## 생일: 2001년 10월 25일  
 
 <!-- [Jekyll](https://jekyllrb.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):
 

@@ -1,11 +1,23 @@
 ---
 layout: post
-title: Example content
+title: Git&Github
 comments: true
 ---
 
+## Git이란??
+- 버전 관리 시스템(version control system)
+- 수행된 작업에 대한 기록이 있다.
+- 여러 사람의 변경 사항을 모두 하나의 소스로 병합할 수 있게 한다.
+---
 
-<div class="message">
+## Github란??
+- 원격 저장소를 호스팅하는 플랫폼  
+- 소프트웨어 프로젝트를 저장, 추적 및 협업하는 데 사용  
+- 쉬운 파일 관리가 가능함
+
+
+
+<!-- <div class="message">
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
 </div>
 
@@ -120,4 +132,4 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 
 -----
 
-Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a>
+Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a> -->
