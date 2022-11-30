@@ -60,6 +60,30 @@ let PAGE_IDENTIFIER = "{{page.url}}"
 
 - post의 초기 설정 값에 "comments:true"를 추가하였다.  
 
+## Google Analytics 이용  
+
+- `data stream` 항목에서 내 블로그 사이트를 등록하였다.  
+- \_includes 폴더에 analytics.html 파일을 새로 만들고, 다음 코드를 입력하였다.  
+
+```
+<script async src="https://www.googletagmanager.com/gtag/js?id=측정ID"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '{{ site.analytics-google }}');
+</script>
+```
+
+- default.html의 head 태그에 다음의 코드를 추가한다.  
+```
+{% raw %} {% include analytics.html %} {% endraw %}
+```
+
+
+
+
 
 
 
