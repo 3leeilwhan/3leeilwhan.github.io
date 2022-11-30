@@ -3,34 +3,34 @@
 - 노션에 나와있는 링크에서 마음에 드는 테마를 몇 개 골라 다운받았는데 `jekyll`을 실행하는데 계속 에러가 나와 수업시간에 다룬 `Lanyon` 테마를 다운받아 사용하였다.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Lanyon
-
-Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+- #### Lanyon  
+     Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ![Lanyon](https://f.cloud.github.com/assets/98681/1825266/be03f014-71b0-11e3-9539-876e61530e24.png)
-![Lanyon with open sidebar](https://f.cloud.github.com/assets/98681/1825267/be04a914-71b0-11e3-966f-8afe9894c729.png)
+![Lanyon with open sidebar](https://f.cloud.github.com/assets/98681/1825267/be04a914-71b0-11e3-966f-8afe9894c729.png)  
+
+
+
+
+```
+git clone https://3leeilwhan.github.io.git '새 폴더 이름' 
+```  
+
+- 위 코드를 이용하여 원격저장소에 있는 `repository`를 나의 로컬 저장소로 불러왔다.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Contents
