@@ -1,3 +1,30 @@
+## Github에서 테마 다운 받기  
+
+- 노션에 나와있는 링크에서 마음에 드는 테마를 몇 개 골라 다운받았는데 `jekyll`을 실행하는데 계속 에러가 나와 수업시간에 다룬 `Lanyon` 테마를 다운받아 사용하였다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Lanyon
 
 Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
