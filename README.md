@@ -76,12 +76,19 @@ gtag('config', '{{ site.analytics-google }}');
 </script>
 ```
 
-- default.html의 head 태그에 다음의 코드를 추가한다.  
+- default.html의 head 태그에 다음의 코드를 추가하였다.  
 ```
 {% raw %} {% include analytics.html %} {% endraw %}
 ```
 
+## favicon 생성
+- 인터넷에서 favicon으로 이용할 이미지를 다운로드 하였고, 원격저장소와 연결된 로컬저장소에 이미지를 넣어놨다.  
 
+```
+<link rel="shortcut icon" href="{{ '사진 파일 경로' | absolute_url }}">
+```
+
+- 위의 코드르 head.html의 head 태그 속에 추가하여 favicon을 추가하였다.
 
 
 
