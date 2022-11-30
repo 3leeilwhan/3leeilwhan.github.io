@@ -1,134 +1,105 @@
-# Lanyon
+## Github에서 테마 다운 받기  
 
-Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+- 노션에 나와있는 링크에서 마음에 드는 테마를 몇 개 골라 다운받았는데 `jekyll`을 실행하는데 계속 에러가 나와 수업시간에 다룬 `Lanyon` 테마를 다운받아 사용하였다.
+
+
+- #### Lanyon  
+     Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ![Lanyon](https://f.cloud.github.com/assets/98681/1825266/be03f014-71b0-11e3-9539-876e61530e24.png)
-![Lanyon with open sidebar](https://f.cloud.github.com/assets/98681/1825267/be04a914-71b0-11e3-966f-8afe9894c729.png)
+![Lanyon with open sidebar](https://f.cloud.github.com/assets/98681/1825267/be04a914-71b0-11e3-966f-8afe9894c729.png)  
 
 
-## Contents
 
-- [Usage](#usage)
-- [Options](#options)
-  - [Sidebar menu](#sidebar-menu)
-  - [Themes](#themes)
-  - [Reverse layout](#reverse-layout)
-- [Development](#development)
-- [Author](#author)
-- [License](#license)
-
-
-## Usage
-
-Lanyon is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
-
-
-## Options
-
-Lanyon includes some customizable options, typically applied via classes on the `<body>` element.
-
-
-### Sidebar menu
-
-Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
 
 ```
----
-layout: page
-title: About
----
+git clone https://3leeilwhan.github.io.git '새 폴더 이름' 
+```  
+
+- 위 코드를 이용하여 원격저장소에 있는 `repository`를 나의 로컬 저장소로 불러왔다.  
+
+
+- `Lanyon` 테마를 사용하는 데 필요한 파일들을 로컬 저장소에 넣어놨다.  
+
+```
+bundle exec jekyll serve
+```  
+- 위 명령어를 사용하여 서버를 실행하였다.
+
+- 하지만 4000번 포트에서 이미 실행되어 있는 것이 있어, 그것을 kill한 후 위 명령어를 다시 사용하여 서버를 실행하였다.  
+
+## 테마에서 개인 정보 수정  
+- \_config.yml 파일을 수정하였다.  
+  `title`, `email`, `description`, `username` 등 여러 정보를 수정하였다.  
+  
+## post 작성  
+- \_posts 디렉토리 안에 post 내용을 `markdown`파일로 저장하였다.  
+- 나의 프로필, git, github, jekyll, markdown에 대한 내용을 post에 담았다.  
+- post에 지금까지 배운 내용을 담으며 3주간 수업시간에 배운 정보들을 되짚어 보는 계기가 되었다.  
+
+## 올린 각각의 post마다 댓글 기능 추가하기  
+- [https://disqus.com](https://disqus.com)에 접속하였다.  
+- Signup을 눌러 회원가입을 하였다.  
+- "I want to install Disqus on my site"를 선택하고 나의 블로그의 정보를 입력한 후 Platform 중 Jekyll을 선택하였다.  
+
+```
+comment:  
+  provider:       "disqus"  
+  disqus:
+    shortname:    "이름"
+    
+```
+- \_config.yml 파일에 위의 코드를 추가하였다.  
+- disqus 홈페이지에서 Universal Code를 복사하고 페이지에 맞게 수정하였다.  
+- \_layouts/post.html 파일에 다음의 주석을 해제 후, PAGE_URL과 PAGE_IDENTIFIER를 설정하였다.
+
+```
+let PAGE_URL = "{{site.url}}{{page.url}}"
+let PAGE_IDENTIFIER = "{{page.url}}"
+```  
+
+- post의 초기 설정 값에 "comments:true"를 추가하였다.  
+
+## Google Analytics 이용  
+
+- `data stream` 항목에서 내 블로그 사이트를 등록하였다.  
+- \_includes 폴더에 analytics.html 파일을 새로 만들고, 다음 코드를 입력하였다.  
+
+```
+<script async src="https://www.googletagmanager.com/gtag/js?id=측정ID"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '{{ site.analytics-google }}');
+</script>
 ```
 
-**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
-
-
-### Themes
-
-Lanyon ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
-
-![Lanyon with red theme](https://f.cloud.github.com/assets/98681/1825270/be065110-71b0-11e3-9ed8-9b8de753a4af.png)
-![Lanyon with red theme and open sidebar](https://f.cloud.github.com/assets/98681/1825269/be05ec20-71b0-11e3-91ea-a9138ef07186.png)
-
-There are eight themes available at this time.
-
-![Available theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
-
-To use a theme, add any one of the available theme classes to the `<body>` element in the `default.html` layout, like so:
-
-```html
-<body class="theme-base-08">
-  ...
-</body>
+- default.html의 head 태그에 다음의 코드를 추가하였다.  
+```
+{% raw %} {% include analytics.html %} {% endraw %}
 ```
 
-To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/lanyon/blob/master/public/css/lanyon.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+## favicon 생성
+- 인터넷에서 favicon으로 이용할 이미지를 다운로드 하였고, 원격저장소와 연결된 로컬저장소에 이미지를 넣어놨다.  
 
-
-### Reverse layout
-
-![Lanyon with reverse layout](https://f.cloud.github.com/assets/98681/1825265/be03f2e4-71b0-11e3-89f1-360705524495.png)
-![Lanyon with reverse layout and open sidebar](https://f.cloud.github.com/assets/98681/1825268/be056174-71b0-11e3-88c8-5055bca4307f.png)
-
-Reverse the page orientation with a single class.
-
-```html
-<body class="layout-reverse">
-  ...
-</body>
+```
+<link rel="shortcut icon" href="{{ '사진 파일 경로' | absolute_url }}">
 ```
 
-
-### Sidebar overlay instead of push
-
-Make the sidebar overlap the viewport content with a single class:
-
-```html
-<body class="sidebar-overlay">
-  ...
-</body>
-```
-
-This will keep the content stationary and slide in the sidebar over the side content. It also adds a `box-shadow` based outline to the toggle for contrast against backgrounds, as well as a `box-shadow` on the sidebar for depth.
-
-It's also available for a reversed layout when you add both classes:
-
-```html
-<body class="layout-reverse sidebar-overlay">
-  ...
-</body>
-```
-
-### Sidebar open on page load
-
-Show an open sidebar on page load by modifying the `<input>` tag within the `sidebar.html` layout to add the `checked` boolean attribute:
-
-```html
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
-```
-
-Using Liquid you can also conditionally show the sidebar open on a per-page basis. For example, here's how you could have it open on the homepage only:
-
-```html
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" {% if page.title =="Home" %}checked{% endif %}>
-```
-
-## Development
-
-Lanyon has two branches, but only one is used for active development.
-
-- `master` for development.  **All pull requests should be to submitted against `master`.**
-- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+- 위의 코드르 head.html의 head 태그 속에 추가하여 favicon을 추가하였다.
 
 
-## Author
-
-**Mark Otto**
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
 
 
-## License
 
-Open sourced under the [MIT license](LICENSE.md).
 
-<3
+
+  
+
+ 
+
+
+
+
