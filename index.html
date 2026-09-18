@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>이일환 포트폴리오</title>
+<meta name="description" content="국민대학교 소프트웨어학부 이일환의 포트폴리오. 시각장애인 보행 보조 앱 '길벗' AI 파트, 스마트홈 통합 시스템 'CareDian' TTS·프론트엔드.">
+<meta name="author" content="이일환">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="이일환 포트폴리오">
+<meta property="og:description" content="음성 인터페이스와 컴퓨터 비전. 시각장애인 보행 보조 앱 '길벗', 스마트홈 통합 시스템 'CareDian'.">
+<meta property="og:url" content="https://3leeilwhan.github.io/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230C0E11'/%3E%3Ctext x='16' y='23' font-family='ui-monospace,monospace' font-size='17' font-weight='700' fill='%23D9A441' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+
+<style>
+  :root {
+    color-scheme: dark;
+
+    --ink:        #0C0E11;
+    --ink-2:      #14171C;
+    --ink-3:      #1B1F26;
+    --line:       #272C35;
+    --line-soft:  #1E232A;
+
+    --fg:         #EDEAE3;
+    --fg-2:       #B4B2AC;
+    --fg-3:       #7D7C77;
+
+    --gold:       #D9A441;
+    --gold-dim:   #8A6A2B;
+
+    --display: "Bricolage Grotesque", "IBM Plex Sans KR", system-ui, sans-serif;
+    --body:    "IBM Plex Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --gutter: 24px;
+
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--fg);
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 15.5px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* ---------- shell ---------- */
+
+  .shell {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+    padding-block: 56px 72px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  @media (min-width: 900px) {
+    :root { --gutter: 40px; }
+    .shell {
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 72px;
+      padding-block: 88px 120px;
+    }
+  }
+
+  /* ---------- rail ---------- */
+
+  .rail { min-width: 0; }
+
+  @media (min-width: 900px) {
+    .rail {
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 0px) + 88px);
+      align-self: start;
+    }
+  }
+
+  .mark {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  .name {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(30px, 6vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .name-en {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    margin: 10px 0 0;
+    text-transform: uppercase;
+  }
+
+  .role {
+    margin: 22px 0 0;
+    color: var(--fg-2);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .rail-nav {
+    display: none;
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line-soft);
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  @media (min-width: 900px) { .rail-nav { display: flex; } }
+
+  .rail-nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.18s ease;
+  }
+  .rail-nav a:hover { color: var(--gold); }
+
+  .rail-links {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--fg-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 13px;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+  .chip:hover { border-color: var(--gold-dim); color: var(--gold); }
+
+  /* ---------- main ---------- */
+
+  .main { min-width: 0; display: flex; flex-direction: column; gap: 68px; }
+
+  section { scroll-margin-top: 40px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 26px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .sec-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .sec-head .count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+    letter-spacing: 0.06em;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .lede {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--fg);
+    margin: 0 0 18px;
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+
+  .prose p {
+    margin: 0 0 16px;
+    max-width: 62ch;
+    color: var(--fg-2);
+    text-wrap: pretty;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ---------- project ---------- */
+
+  .work { display: flex; flex-direction: column; gap: 52px; }
+
+  .proj {
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 62%);
+    padding: 26px 22px 24px;
+  }
+
+  @media (min-width: 620px) { .proj { padding: 32px 30px 28px; } }
+
+  .p-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    align-items: baseline;
+  }
+
+  .p-eyebrow .dot { color: var(--gold-dim); }
+
+  .p-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(24px, 4.6vw, 31px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .p-title .ko {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 0.55em;
+    color: var(--fg-3);
+    letter-spacing: 0;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  .p-sub {
+    margin: 10px 0 0;
+    color: var(--fg-2);
+    font-size: 15.5px;
+    line-height: 1.7;
+    max-width: 58ch;
+    text-wrap: pretty;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 24px 0 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  @media (min-width: 560px) {
+    .meta { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; }
+  }
+
+  .meta div {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .meta dt {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin-bottom: 3px;
+  }
+
+  .meta dd {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--fg);
+    line-height: 1.5;
+  }
+
+  .meta dd.accent { color: var(--gold); }
+
+  .p-body { margin-top: 24px; }
+
+  .p-body h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin: 0 0 12px;
+    font-weight: 500;
+  }
+
+  .p-body h4 + .bullets { margin-bottom: 22px; }
+  .p-body .bullets:last-child { margin-bottom: 0; }
+
+  .bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+
+  .bullets li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--fg-2);
+    font-size: 14.5px;
+    line-height: 1.75;
+    max-width: 64ch;
+    text-wrap: pretty;
+  }
+
+  .bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 11px;
+    width: 6px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .bullets strong { font-weight: 500; color: var(--fg); }
+
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    color: var(--fg-2);
+    background: var(--ink-3);
+    border: 1px solid var(--line-soft);
+    border-radius: 3px;
+    padding: 4px 9px;
+  }
+
+  .p-foot {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    align-items: center;
+  }
+
+  .repo-link {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 7px 14px;
+    transition: border-color 0.18s ease, color 0.18s ease;
+    word-break: break-all;
+  }
+  .repo-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---------- skills / contact ---------- */
+
+  .skills, .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line-soft);
+    margin: 0;
+  }
+
+  .skill, .c-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  @media (min-width: 620px) {
+    .skill, .c-row {
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 20px;
+      align-items: baseline;
+    }
+  }
+
+  .skill dt {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .skill dd {
+    margin: 0;
+    color: var(--fg-2);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .c-row { padding: 15px 0; }
+
+  .c-row dt {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+
+  .c-row dd { margin: 0; }
+
+  .c-row dd a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    padding-bottom: 1px;
+    word-break: break-all;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+  .c-row dd a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ---------- foot ---------- */
+
+  .foot {
+    margin-top: 12px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--fg-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="rail">
+    <p class="mark">Portfolio</p>
+    <h1 class="name">이일환</h1>
+    <p class="name-en">Lee Ilhwan</p>
+    <p class="role">국민대학교 소프트웨어학부<br>음성 인터페이스 · 컴퓨터 비전</p>
+
+    <nav class="rail-nav" aria-label="섹션 이동">
+      <a href="#about">01 &nbsp;소개</a>
+      <a href="#work">02 &nbsp;프로젝트</a>
+      <a href="#skills">03 &nbsp;기술</a>
+      <a href="#contact">04 &nbsp;연락처</a>
+    </nav>
+
+    <div class="rail-links">
+      <a class="chip" href="https://github.com/3leeilwhan" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="mailto:3leeilwhan@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="about">
+      <div class="sec-head"><h2>소개</h2><span class="count">01</span></div>
+      <div class="prose">
+        <p class="lede">화면을 보기 어려운 사람에게도 통하는 인터페이스를 만드는 일에 관심이 있습니다. 시각장애인 보행 보조 앱에서는 카메라가 본 것을 음성 안내로 바꾸는 AI 파트를, 고령자용 스마트홈에서는 한국어 TTS 파이프라인과 대시보드를 맡았습니다.</p>
+        <p>두 프로젝트 모두 &ldquo;기술이 되는가&rdquo;보다 &ldquo;그 사람이 실제로 쓸 수 있는가&rdquo;가 어려운 부분이었습니다. 캡스톤에서는 시각장애인 복지관 두 곳을 찾아가 실사용자 테스트를 진행했고, 스마트홈에서는 숫자와 영문이 섞인 안내 문장이 어색하게 읽히는 문제를 전처리 단계에서 해결했습니다.</p>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sec-head"><h2>프로젝트</h2><span class="count">02</span></div>
+
+      <div class="work">
+
+        <article class="proj">
+          <p class="p-eyebrow"><span>졸업 캡스톤 디자인</span><span class="dot">/</span><span>2026</span></p>
+          <h3 class="p-title">길벗</h3>
+          <p class="p-sub">스마트폰 카메라와 AI로 시각장애인·저시력자의 보행을 돕는 모바일 앱. 실시간으로 장애물을 인식해 회피 방향을 음성과 진동으로 안내합니다.</p>
+
+          <dl class="meta">
+            <div>
+              <dt>역할</dt>
+              <dd class="accent">AI</dd>
+            </div>
+            <div>
+              <dt>팀 구성</dt>
+              <dd>6명 (AI 2 · BE 2 · FE 2)</dd>
+            </div>
+            <div>
+              <dt>규모</dt>
+              <dd>커밋 744회</dd>
+            </div>
+          </dl>
+
+          <div class="p-body">
+            <h4>맡은 일</h4>
+            <ul class="bullets">
+              <li><strong>객체 탐지 · 추적</strong> — YOLO 계열 모델로 보행 중 마주치는 장애물을 실시간 인식하고, ByteTrack으로 프레임 간 동일 객체를 추적해 안내가 흔들리지 않도록 했습니다.</li>
+              <li><strong>보행 가능 영역 분할</strong> — 세그멘테이션 모델로 인도·횡단보도 등 걸을 수 있는 영역을 구분하고, Depth-Anything V2로 추정한 거리 정보를 합쳐 회피 방향을 계산했습니다.</li>
+              <li><strong>추론 서버</strong> — FastAPI로 모델 서버를 앱과 분리해 구성하고, Spring Boot 백엔드와 연동되도록 API를 설계했습니다.</li>
+              <li><strong>데이터셋 구축</strong> — AIHub 보행 영상과 Roboflow 데이터셋을 가공해 국내 보행 환경에 맞는 학습 데이터를 만들었습니다.</li>
+              <li><strong>실사용자 검증</strong> — 성북·노원 시각장애인 복지관에서 사용자 테스트를 진행하고, 탐지 정확도와 안내 방식에 대한 피드백을 모델 기준에 반영했습니다.</li>
+            </ul>
+
+            <div class="stack">
+              <span class="tag">PyTorch</span>
+              <span class="tag">YOLO</span>
+              <span class="tag">YOLO-SEG</span>
+              <span class="tag">ByteTrack</span>
+              <span class="tag">Depth-Anything V2</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Docker</span>
+              <span class="tag">TMAP API</span>
+            </div>
+
+            <div class="p-foot">
+              <a class="repo-link" href="https://github.com/kookmin-sw/2026-capstone-16" target="_blank" rel="noopener">GitHub 저장소 →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <p class="p-eyebrow"><span>제23회 임베디드 소프트웨어 경진대회</span><span class="dot">/</span><span>2025</span></p>
+          <h3 class="p-title">CareDian <span class="ko">케어디안</span></h3>
+          <p class="p-sub">고령자·1인가구를 위한 스마트홈 통합 관리 시스템. 제조사마다 제각각인 기기를 Home Assistant 허브로 묶고, 음성 인터페이스와 mmWave 낙상 감지를 결합했습니다. 카메라를 쓰지 않아 프라이버시 부담이 적습니다.</p>
+
+          <dl class="meta">
+            <div>
+              <dt>역할</dt>
+              <dd class="accent">TTS · 프론트엔드</dd>
+            </div>
+            <div>
+              <dt>팀 구성</dt>
+              <dd>5명</dd>
+            </div>
+            <div>
+              <dt>결과</dt>
+              <dd>본선 진출</dd>
+            </div>
+          </dl>
+
+          <div class="p-body">
+            <h4>맡은 일 — 음성 인터페이스</h4>
+            <ul class="bullets">
+              <li><strong>한국어 TTS 파이프라인 구축</strong> — VoxCPM-0.5B를 음성 합성 엔진으로 삼아 Wyoming 프로토콜 서버를 구현하고, Home Assistant의 표준 TTS로 연결해 모든 자동화에서 음성 안내를 쓸 수 있게 했습니다.</li>
+              <li><strong>텍스트 전처리로 발음 품질 확보</strong> — 기기 상태 메시지에는 숫자와 영문이 섞여 있어 그대로 읽히면 어색합니다. Kiwi로 형태소를 분석하고 KSS로 문장을 나눈 뒤, num2words와 g2p-en으로 숫자와 영문을 한국어 발음으로 변환해 자연스럽게 들리도록 했습니다.</li>
+              <li><strong>음성 출력 규격 정리</strong> — 16kHz / mono / 16bit WAV로 출력 포맷을 통일해 Home Assistant 기기 전반에서 동일하게 재생되도록 했습니다.</li>
+              <li><strong>자녀 음색 TTS</strong> — 고령 사용자가 안내를 더 편하게 받아들이도록 익숙한 목소리로 합성하는 방식을 적용했습니다.</li>
+            </ul>
+
+            <h4>맡은 일 — 프론트엔드</h4>
+            <ul class="bullets">
+              <li><strong>Lovelace 대시보드 구성</strong> — 기기 제어, 낙상 알림, 에너지 사용 현황을 한 화면에서 볼 수 있도록 Home Assistant 대시보드 UI를 설계했습니다.</li>
+              <li><strong>접근성 우선 화면</strong> — 복잡한 설정이 진입장벽이 되지 않도록, 고령 사용자가 바로 이해할 수 있는 수준으로 화면을 단순화했습니다.</li>
+            </ul>
+
+            <div class="stack">
+              <span class="tag">VoxCPM-0.5B</span>
+              <span class="tag">Wyoming</span>
+              <span class="tag">Kiwi</span>
+              <span class="tag">KSS</span>
+              <span class="tag">g2p-en</span>
+              <span class="tag">num2words</span>
+              <span class="tag">Python 3.12</span>
+              <span class="tag">Home Assistant</span>
+              <span class="tag">Lovelace</span>
+              <span class="tag">FFmpeg</span>
+              <span class="tag">ESPHome</span>
+            </div>
+
+            <div class="p-foot">
+              <a class="repo-link" href="https://github.com/2025-Embedded-Software-Contest/2025ESWContest_smart_kossmetheus" target="_blank" rel="noopener">GitHub 저장소 →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head"><h2>기술</h2><span class="count">03</span></div>
+      <dl class="skills">
+        <div class="skill">
+          <dt>음성 · TTS</dt>
+          <dd>VoxCPM 기반 한국어 음성 합성 서버 구현, Wyoming 프로토콜 연동. Kiwi·KSS·g2p-en·num2words를 엮은 텍스트 전처리 파이프라인 설계.</dd>
+        </div>
+        <div class="skill">
+          <dt>AI · 비전</dt>
+          <dd>PyTorch, YOLO 계열 객체 탐지 및 세그멘테이션, ByteTrack 다중 객체 추적, 단안 깊이 추정. 데이터셋 가공과 학습 파이프라인 구성.</dd>
+        </div>
+        <div class="skill">
+          <dt>Python</dt>
+          <dd>FastAPI 기반 추론·게이트웨이 서버, 모델 학습 및 추론 코드, 오디오·데이터 전처리 스크립트.</dd>
+        </div>
+        <div class="skill">
+          <dt>스마트홈 · IoT</dt>
+          <dd>Home Assistant 허브 구성과 Lovelace 대시보드 설계. ESPHome, Zigbee/Matter 등 이기종 기기 연동 환경 이해.</dd>
+        </div>
+        <div class="skill">
+          <dt>인프라 · 협업</dt>
+          <dd>Docker &amp; Docker Compose, NGINX 배포. Git 브랜치 전략과 Pull Request 기반 5~6인 팀 협업.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <div class="sec-head"><h2>연락처</h2><span class="count">04</span></div>
+      <dl class="contact-grid">
+        <div class="c-row">
+          <dt>Email</dt>
+          <dd><a href="mailto:3leeilwhan@gmail.com">3leeilwhan@gmail.com</a></dd>
+        </div>
+        <div class="c-row">
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/3leeilwhan" target="_blank" rel="noopener">github.com/3leeilwhan</a></dd>
+        </div>
+      </dl>
+
+      <p class="foot">
+        <span>이일환 · Lee Ilhwan</span>
+        <span>최종 수정 2026.09.18</span>
+      </p>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
