@@ -331,6 +331,48 @@
 
   .meta dd.accent { color: var(--gold); }
 
+  @media (min-width: 560px) {
+    .meta.meta-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- awards ---------- */
+
+  .awards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 24px 0 0;
+  }
+
+  @media (min-width: 620px) {
+    .awards { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  }
+
+  .award { margin: 0; }
+
+  .award img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--line-soft);
+    background: var(--ink-3);
+  }
+
+  .award figcaption {
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--fg-2);
+  }
+
+  .award figcaption strong {
+    display: block;
+    font-weight: 500;
+    color: var(--gold);
+    font-size: 14.5px;
+  }
+
   .p-body { margin-top: 24px; }
 
   .p-body h4 {
@@ -524,6 +566,7 @@
       <div class="prose">
         <p class="lede">화면을 보기 어려운 사람에게도 통하는 인터페이스를 만드는 일에 관심이 있습니다. 시각장애인 보행 보조 앱에서는 카메라가 본 것을 음성 안내로 바꾸는 AI 파트를, 고령자용 스마트홈에서는 한국어 TTS 파이프라인과 대시보드를 맡았습니다.</p>
         <p>두 프로젝트 모두 &ldquo;기술이 되는가&rdquo;보다 &ldquo;그 사람이 실제로 쓸 수 있는가&rdquo;가 어려운 부분이었습니다. 캡스톤에서는 시각장애인 복지관 두 곳을 찾아가 실사용자 테스트를 진행했고, 스마트홈에서는 숫자와 영문이 섞인 안내 문장이 어색하게 읽히는 문제를 전처리 단계에서 해결했습니다.</p>
+        <p>현재는 Media Computing Lab 학부연구생으로 영상 편집 자동화를 연구하며, AI로 콘텐츠를 만드는 방식으로 관심을 넓히고 있습니다.</p>
       </div>
     </section>
 
@@ -537,7 +580,7 @@
           <h3 class="p-title">길벗</h3>
           <p class="p-sub">스마트폰 카메라와 AI로 시각장애인·저시력자의 보행을 돕는 모바일 앱. 실시간으로 장애물을 인식해 회피 방향을 음성과 진동으로 안내합니다.</p>
 
-          <dl class="meta">
+          <dl class="meta meta-4">
             <div>
               <dt>역할</dt>
               <dd class="accent">AI</dd>
@@ -550,13 +593,29 @@
               <dt>규모</dt>
               <dd>커밋 744회</dd>
             </div>
+            <div>
+              <dt>결과</dt>
+              <dd class="accent">캡스톤 대상 · 아이디어 경진대회 장려상</dd>
+            </div>
           </dl>
+
+          <div class="awards">
+            <figure class="award">
+              <img src="/files/award-capstone-grand.jpg" width="1170" height="869" loading="lazy" alt="2026 KMUCS EXPO 캡스톤 디자인 전시회에서 대상 수상 후 팀원들과 찍은 사진">
+              <figcaption><strong>대상</strong>2026 KMUCS EXPO 캡스톤 디자인 전시회</figcaption>
+            </figure>
+            <figure class="award">
+              <img src="/files/award-idea-contest.jpg" width="646" height="256" loading="lazy" alt="2026 국민대학교 캡스톤디자인 아이디어 경진대회 시상식 단체 사진">
+              <figcaption><strong>장려상</strong>2026 국민대학교 캡스톤디자인 아이디어 경진대회 (국민대학교 산학협력단)</figcaption>
+            </figure>
+          </div>
 
           <div class="p-body">
             <h4>맡은 일</h4>
             <ul class="bullets">
               <li><strong>객체 탐지 · 추적</strong> — YOLO 계열 모델로 보행 중 마주치는 장애물을 실시간 인식하고, ByteTrack으로 프레임 간 동일 객체를 추적해 안내가 흔들리지 않도록 했습니다.</li>
               <li><strong>보행 가능 영역 분할</strong> — 세그멘테이션 모델로 인도·횡단보도 등 걸을 수 있는 영역을 구분하고, Depth-Anything V2로 추정한 거리 정보를 합쳐 회피 방향을 계산했습니다.</li>
+              <li><strong>거리 추정 · 보정</strong> — FastDepth, LiteMono, Depth-Anything V2 세 가지 깊이 추정 모델을 비교해 선택하고, 2~13m 구간 12개 지점의 실측 데이터로 선형 보정식을 만들어 실제 거리와의 오차를 줄였습니다.</li>
               <li><strong>추론 서버</strong> — FastAPI로 모델 서버를 앱과 분리해 구성하고, Spring Boot 백엔드와 연동되도록 API를 설계했습니다.</li>
               <li><strong>데이터셋 구축</strong> — AIHub 보행 영상과 Roboflow 데이터셋을 가공해 국내 보행 환경에 맞는 학습 데이터를 만들었습니다.</li>
               <li><strong>실사용자 검증</strong> — 성북·노원 시각장애인 복지관에서 사용자 테스트를 진행하고, 탐지 정확도와 안내 방식에 대한 피드백을 모델 기준에 반영했습니다.</li>
@@ -682,7 +741,7 @@
 
       <p class="foot">
         <span>이일환 · Lee Ilhwan</span>
-        <span>최종 수정 2026.09.26</span>
+        <span>최종 수정 2026.09.30</span>
       </p>
     </section>
 
